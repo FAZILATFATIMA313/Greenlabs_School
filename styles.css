@@ -1,0 +1,57 @@
+/* Mobile-first responsive overrides for greenlabs-school.html */
+:root{--container-padding:16px}
+html,body{height:100%;}
+body{padding-top:72px;}
+/* Basic responsive nav */
+nav{padding:12px var(--container-padding);}
+.nav-links{display:none;flex-direction:column;gap:12px;position:fixed;top:72px;right:0;background:rgba(255,255,255,0.98);width:240px;max-width:80vw;height:calc(100vh - 72px);padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateX(100%);transition:transform .28s ease;}
+.nav-links.open{transform:translateX(0);} 
+.nav-links a{display:block;padding:8px 12px;border-radius:8px;color:var(--text-mid);}
+.nav-toggle{background:transparent;border:0;display:flex;align-items:center;justify-content:center;color:var(--green-mid);}
+.nav-cta{display:none}
+
+/* Hero adjustments */
+.hero{padding:48px var(--container-padding);min-height:60vh}
+.hero-content{max-width:760px;margin:0 auto;padding:80px 0}
+h1{font-family:var(--font-display);font-size:28px;line-height:1.05;margin-bottom:12px}
+.hero-sub{font-size:15px;color:var(--text-mid);margin-top:12px}
+.hero-actions{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.btn-primary, .btn-ghost, .btn-white{padding:10px 14px;border-radius:12px}
+
+/* Grid stacks into single column */
+.problem-grid{display:block;padding:28px var(--container-padding)}
+.problem-cards{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.contact-grid{display:block;padding:28px var(--container-padding)}
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:10px;padding:18px}
+
+/* Images responsive */
+img{max-width:auto;height:auto;display:block}
+.hero-img{background-size:cover;background-position:center}
+
+/* Footer and spacing */
+footer{padding:28px var(--container-padding);flex-direction:column;gap:12px}
+
+/* Contact avatars: force perfect fit for founder/team cards - fills frame completely */
+.contact-avatar {
+  width:72px;height:72px;border-radius:0%;overflow:hidden;background:var(--green-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(74,140,86,0.08);
+}
+.contact-avatar img, .founder-card img, .team-card img {
+  width:100%;height:auto;object-fit:contain;object-position:auto;display:block;border-radius:0%;flex-shrink:0; margin-top :-0px;
+}
+
+/* Larger screens */
+@media(min-width:800px){
+  .nav-toggle{display:none}
+  .nav-toggle{display:none}
+  .nav-links{display:flex;position:static;transform:none;height:auto;background:transparent;padding:0;flex-direction:row;gap:28px}
+  .nav-cta{display:inline-block}
+  .contact-avatar{width:92px;height:92px}
+  .hero{min-height:100vh;padding:48px 64px}
+  h1{font-size:48px}
+  .hero-actions{flex-direction:row}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:60px 64px}
+  .problem-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:40px;padding:48px 64px}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+}
+
